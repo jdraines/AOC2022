@@ -3,17 +3,17 @@
 #include <vector>
 #include <cstddef>
 
+#include "input.h"
+
 using namespace std;
 
-class InputDoc {
-    private:
-        size_t numLines_;
-        vector<string> doc_;
-    public:
-        vector<string>& doc() { return doc_; };
-        const size_t& const numLines() { return numLines_; };
+namespace aoc 
+{
+
+        vector<string>& InputDoc::doc() { return doc_; };
+        const size_t& InputDoc::numLines() { return numLines_; };
         
-        InputDoc(string filepath) {
+        InputDoc::InputDoc(string filepath) {
             ifstream file(filepath);
             string line;
             while (getline(file, line))
@@ -24,7 +24,7 @@ class InputDoc {
             numLines_ = doc_.size();
         };
        
-        string text() {
+        string InputDoc::text() {
             string text_ = "";
             for (auto &s : doc_)
             {
@@ -33,4 +33,4 @@ class InputDoc {
             return text_;
         };
 
-};
+}

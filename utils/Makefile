@@ -1,11 +1,19 @@
-CFLAGS = -std=c++11
+CC = g++
+CFLAGS = -g
+ODIR=obj
 
-main: input test
-	g++ -o main input.o test.o $(CFLAGS)
+DEPS = input.h
+OBJ = $(ODIR)/input.o $(ODIR)/test.o
 
-intput: input.cpp
-	g++ -c input.cpp $(CFLAGS)
+all: test
 
-test: test.cpp
-	g++ -c test.cpp $(CFLAGS)
+test: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
+
+$(ODIR)/input.o: ./input.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+
+$(ODIR)/test.o: ./test.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
 
