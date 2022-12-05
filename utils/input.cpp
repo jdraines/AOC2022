@@ -28,7 +28,7 @@ namespace aoc
             string text_ = "";
             for (auto &s : doc_)
             {
-                text_ += s;
+                text_ += (s + "\n");
             }
             return text_;
         };

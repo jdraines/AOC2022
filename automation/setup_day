@@ -1,0 +1,11 @@
+#!/bin/sh
+D=$1
+
+BASEDIR=$(dirname "$0")
+
+if [ -z "$D" ] 
+then
+	echo "Error: Must provide a day number"
+else
+    python3 ${BASEDIR}/setup_day.py $D
+fi

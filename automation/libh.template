@@ -1,0 +1,5 @@
+#ifndef {macro_name}
+#define {macro_name}
+
+
+#endif /* {macro_name} */

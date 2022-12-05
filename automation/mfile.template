@@ -1,0 +1,27 @@
+DAY = {day}
+all: $(DAY)
+
+CC=g++
+CFLAGS=-g
+ODIR=obj
+INPUT_DIR = ../../inputs
+DEPS = $(INPUT_DIR)/inputs.h ./$(DAY)lib.cpp
+OBJ = $(ODIR)/inputs.o $(ODIR)/$(DAY).o $(ODIR)/$(DAY)lib.o
+
+$(ODIR)/inputs.o: $(INPUT_DIR)/inputs.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+$(ODIR)/$(DAY)lib.o: ./$(DAY)lib.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+$(ODIR)/$(DAY).o: ./$(DAY).cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+$(DAY): $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
+
+.PHONY: clean
+
+clean:
+	rm -f $(ODIR)/*.o
+	rm ./$(DAY)
