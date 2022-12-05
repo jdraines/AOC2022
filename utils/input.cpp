@@ -1,7 +1,9 @@
+#include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 #include <cstddef>
+#include <stdlib.h>
 
 #include "input.h"
 
@@ -31,6 +33,20 @@ namespace aoc
                 text_ += (s + "\n");
             }
             return text_;
+        };
+
+        InputDoc get_input(int argc, char *argv[])
+        {
+            string fpath = read_cli_arg(argc, argv);
+            return InputDoc(fpath);
+        };
+
+        string read_cli_arg(int argc, char* argv[])
+        {
+            string fpath;
+            if (argc == 1) { cout << "Must provide an input filename\n"; exit(0); }
+            else { fpath = argv[1]; }
+            return fpath;
         };
 
 }

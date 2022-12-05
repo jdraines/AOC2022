@@ -25,5 +25,9 @@ class InputDoc {
 
 };
 
+InputDoc get_input(int argc, char *argv[]);
+
+string read_cli_arg(int argc, char* argv[]);
+
 }
 #endif // INPUT_H

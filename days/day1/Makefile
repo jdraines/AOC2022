@@ -4,11 +4,11 @@ all: $(DAY)
 CC=g++
 CFLAGS=-g
 ODIR=obj
-INPUT_DIR = ../../inputs
-DEPS = $(INPUT_DIR)/inputs.h ./$(DAY)lib.cpp
-OBJ = $(ODIR)/inputs.o $(ODIR)/$(DAY).o $(ODIR)/$(DAY)lib.o
+UTILS_DIR = ../../utils
+DEPS = $(UTILS_DIR)/input.h ./$(DAY)lib.cpp
+OBJ = $(ODIR)/input.o $(ODIR)/$(DAY).o $(ODIR)/$(DAY)lib.o
 
-$(ODIR)/inputs.o: $(INPUT_DIR)/inputs.cpp $(DEPS)
+$(ODIR)/input.o: $(UTILS_DIR)/input.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 $(ODIR)/$(DAY)lib.o: ./$(DAY)lib.cpp $(DEPS)
