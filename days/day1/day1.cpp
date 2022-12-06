@@ -42,7 +42,5 @@ void part2(int argc, char* argv[])
     elfTotals = get_elf_totals(elves);
     top3 = get_top3_elves(elfTotals);
 
-    for (auto e: top3) { cout << e << "\n"; }
-
     cout << "Top 3 combined: " << reduce(top3.begin(), top3.end()) << "\n";
 }

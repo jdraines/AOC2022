@@ -6,6 +6,7 @@ _here = os.path.dirname(os.path.realpath(__file__))
 
 MFILE_TEMPLATE = os.path.join(_here, "mfile.template")
 LIBH_TEMPLATE = os.path.join(_here, "libh.template")
+GITIGNORE_TEMPLATE = os.path.join(_here, ".gitignore")
 
 def setup_day(day):
     
@@ -36,6 +37,11 @@ def setup_day(day):
         libc_doc = f.read().format(macro_name=f"day{day}lib_h".upper())
     with open(f"days/day{day}/day{day}lib.h", 'wt') as f:
         f.write(libc_doc)
+
+    with open(GITIGNORE_TEMPLATE, 'rt') as fr:
+        with open(f"days/day{day}/.gitignore", 'wt') as fw:
+            doc = fr.read().format(day=day)
+            fw.write(doc)
 
 if __name__ == "__main__":
 

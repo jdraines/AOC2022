@@ -1,0 +1,52 @@
+UNO:
+id: rock
+config:
+key: rock, value: 3
+key: paper, value: 0
+key: scissors, value: 6
+
+DOS:
+id: rock
+config:
+key: rock, value: 3
+key: paper, value: 0
+key: scissors, value: 6
+
+SCORE: 4
+-----
+
+UNO:
+id: paper
+config:
+key: rock, value: 6
+key: paper, value: 3
+key: scissors, value: 0
+
+DOS:
+id: rock
+config:
+key: rock, value: 3
+key: paper, value: 0
+key: scissors, value: 6
+
+SCORE: 1
+-----
+
+UNO:
+id: scissors
+config:
+key: rock, value: 0
+key: paper, value: 6
+key: scissors, value: 3
+
+DOS:
+id: rock
+config:
+key: rock, value: 3
+key: paper, value: 0
+key: scissors, value: 6
+
+SCORE: 7
+-----
+
+Total score: 12
