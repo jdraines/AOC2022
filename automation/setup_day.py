@@ -7,6 +7,7 @@ _here = os.path.dirname(os.path.realpath(__file__))
 MFILE_TEMPLATE = os.path.join(_here, "mfile.template")
 LIBH_TEMPLATE = os.path.join(_here, "libh.template")
 GITIGNORE_TEMPLATE = os.path.join(_here, ".gitignore")
+DAYCPP_TEMPLATE = os.path.join(_here, "daycpp.template") 
 
 def setup_day(day):
     
@@ -22,7 +23,6 @@ def setup_day(day):
     paths = [
         f"days/day{day}/inputs/example1.txt",
         f"days/day{day}/inputs/day{day}.txt",
-        f"days/day{day}/day{day}.cpp",
         f"days/day{day}/day{day}lib.cpp"
     ]
     for p in paths:
@@ -40,6 +40,11 @@ def setup_day(day):
 
     with open(GITIGNORE_TEMPLATE, 'rt') as fr:
         with open(f"days/day{day}/.gitignore", 'wt') as fw:
+            doc = fr.read().format(day=day)
+            fw.write(doc)
+
+    with open(DAYCPP_TEMPLATE, 'rt') as fr:
+        with open( f"days/day{day}/day{day}.cpp", 'wt') as fw:
             doc = fr.read().format(day=day)
             fw.write(doc)
 
