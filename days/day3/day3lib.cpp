@@ -1,8 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <utility>
 #include <algorithm>
 #include <string>
 #include "day3lib.h"
+#include <array>
+#include <algorithm>
 
 using namespace std;
 
@@ -50,4 +53,32 @@ vector<char> parseItems(string itemStr)
     vector<char> cVec;
     for (char c : itemStr) { cVec.push_back(c); }
     return cVec;
+}
+
+vector<Group> splitIntoGroups(vector<vector<char>> itemVec)
+{
+    vector<Group> grouped;
+    Group g;
+    int n = 0;
+
+    for (auto v : itemVec)
+    {
+        g[n] = v;
+        if (n == 2) {grouped.push_back(g); n = 0;}
+        else { n++; } 
+    }
+
+    return grouped;
+}
+
+char findBadge(Group g)
+{
+    char c_ = '\0';
+    for (auto c : g[0])
+    {
+        if (   itemInCompartment(c, g[1])
+            && itemInCompartment(c, g[2]))
+        { return c; }
+    }
+    return c_;
 }
