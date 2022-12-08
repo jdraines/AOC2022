@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 void part1(int argc, char* argv[])
 {
     aoc::InputDoc input = aoc::get_input(argc, argv);
-    cout << "start packet: " << getStart(input.text()) << endl;
+    cout << "start packet: " << getStart(input.text(), 4) << endl;
 }
 
 void part2(int argc, char* argv[])
