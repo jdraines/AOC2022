@@ -38,7 +38,7 @@ namespace aoc
             {
                 text_ += (s + "\n");
             }
-            return text_;
+            return text_.substr(0, text_.size()-1);
         };
 
         InputDoc InputDoc::subDoc(int start, int stop)
