@@ -21,7 +21,7 @@ def setup_day(day):
         os.makedirs(d, exist_ok=True)
 
     paths = [
-        f"days/day{day}/inputs/example1.txt",
+        f"days/day{day}/inputs/example.txt",
         f"days/day{day}/inputs/day{day}.txt",
         f"days/day{day}/day{day}lib.cpp"
     ]

@@ -18,11 +18,10 @@ class InputDoc {
     public:
         vector<string>& doc();
         const size_t& numLines();
-        
         InputDoc(string filepath);
-       
+        InputDoc(vector<string> doc);
         string text();
-
+        InputDoc subDoc(int start, int end);
 };
 
 InputDoc get_input(int argc, char *argv[]);

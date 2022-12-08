@@ -25,6 +25,12 @@ namespace aoc
             doc_.shrink_to_fit();
             numLines_ = doc_.size();
         };
+
+        InputDoc::InputDoc(vector<string> doc)
+        {
+            doc_ = doc;
+            numLines_ = doc.size();
+        }
        
         string InputDoc::text() {
             string text_ = "";
@@ -34,6 +40,13 @@ namespace aoc
             }
             return text_;
         };
+
+        InputDoc InputDoc::subDoc(int start, int stop)
+        {
+            vector<string> doc;
+            doc = vector(doc_.begin() + start, doc_.begin() + stop);
+            return InputDoc(doc);
+        }
 
         InputDoc get_input(int argc, char *argv[])
         {
